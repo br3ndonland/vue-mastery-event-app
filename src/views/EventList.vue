@@ -18,14 +18,13 @@ export default {
       events: []
     }
   },
-  created() {
-    EventService.getEvents()
-      .then(response => {
-        this.events = response.data
-      })
-      .catch(error => {
-        console.log('There was an error:', error.response)
-      })
+  async created() {
+    try {
+      let response = await EventService.getEvents()
+      this.events = response.data
+    } catch (e) {
+      throw Error(e)
+    }
   }
 }
 </script>
