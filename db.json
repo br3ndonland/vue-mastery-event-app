@@ -89,6 +89,42 @@
       "date": "",
       "time": "",
       "attendees": []
+    },
+    {
+      "id": 3819917,
+      "user": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "category": "sustainability",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "title": "Testing out a sustainability event!",
+      "description": "Working through Vue Mastery Mastering Vuex, lesson 4: mutations and actions part 1",
+      "location": "27 Drydock Ave, Boston, MA, 02210",
+      "date": "2019-06-27T17:46:00.000Z",
+      "time": "10:00",
+      "attendees": []
+    },
+    {
+      "id": 1729138,
+      "user": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "category": "sustainability",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "title": "Testing out an async sustainability event!",
+      "description": "Refactored the createEvent() method",
+      "location": "27 Drydock Ave, Boston, MA 02210",
+      "date": "2019-06-27T17:50:00.000Z",
+      "time": "13:00",
+      "attendees": []
     }
   ]
 }
