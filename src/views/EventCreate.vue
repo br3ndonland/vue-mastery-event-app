@@ -84,7 +84,6 @@ export default {
         this.event = this.createFreshEventObject()
       } catch (e) {
         throw Error(e)
-        console.error(`There was a problem creating your event`)
       }
     },
     createFreshEventObject() {
