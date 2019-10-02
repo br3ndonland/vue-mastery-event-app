@@ -32,7 +32,6 @@
   </div>
 </template>
 <script>
-import { mapState } from 'vuex'
 import NProgress from 'nprogress'
 import store from '@/store/store'
 
@@ -43,16 +42,12 @@ export default {
       required: true
     }
   },
-  beforeRouteEnter(routeTo, routeFrom, next) {
+  async beforeRouteEnter(routeTo, routeFrom, next) {
     NProgress.start()
-    store.dispatch('event/fetchEvent', routeTo.params.id).then(() => {
-      NProgress.done()
-      next()
-    })
-  },
-  computed: mapState({
-    event: state => state.event.event
-  })
+    await store.dispatch('event/fetchEvent', routeTo.params.id)
+    NProgress.done()
+    next()
+  }
 }
 </script>
 <style scoped>
