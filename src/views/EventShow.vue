@@ -37,7 +37,12 @@ import NProgress from 'nprogress'
 import store from '@/store/store'
 
 export default {
-  props: ['id'],
+  props: {
+    event: {
+      type: Object,
+      required: true
+    }
+  },
   beforeRouteEnter(routeTo, routeFrom, next) {
     NProgress.start()
     store.dispatch('event/fetchEvent', routeTo.params.id).then(() => {

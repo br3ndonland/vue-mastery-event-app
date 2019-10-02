@@ -44,16 +44,19 @@ export default {
       const event = getters.getEventById(id)
       if (event) {
         commit('SET_EVENT', event)
+        return event
       } else {
         try {
           let response = await EventService.getEvent(id)
           commit('SET_EVENT', response.data)
+          return response.data
         } catch (e) {
           const notification = {
             type: 'error',
             message: `There was a problem fetching the event: ${e.message}`
           }
           dispatch('notification/add', notification, { root: true })
+          throw Error(e)
         }
       }
     },
@@ -69,24 +72,6 @@ export default {
         }
         dispatch('notification/add', notification, { root: true })
       }
-    }
-  },
-  fetchEvent({ commit, getters, dispatch }, id) {
-    var event = getters.getEventById(id)
-    if (event) {
-      commit('SET_EVENT', event)
-    } else {
-      return EventService.getEvent(id)
-        .then(response => {
-          commit('SET_EVENT', response.data)
-        })
-        .catch(error => {
-          const notification = {
-            type: 'error',
-            message: 'There was a problem fetching event: ' + error.message
-          }
-          dispatch('notification/add', notification, { root: true })
-        })
     }
   },
   getters: {
