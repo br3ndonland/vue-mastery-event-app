@@ -5,7 +5,8 @@ export default {
   state: {
     events: [],
     eventsTotal: 0,
-    event: {}
+    event: {},
+    perPage: 3
   },
   mutations: {
     ADD_EVENT(state, event) {
@@ -26,6 +27,7 @@ export default {
       try {
         await EventService.postEvent(event)
         commit('ADD_EVENT', event)
+        commit('SET_EVENT', event)
         const notification = {
           type: 'success',
           message: 'Your event has been created!'
@@ -40,7 +42,10 @@ export default {
         throw Error(e)
       }
     },
-    async fetchEvent({ commit, getters, dispatch }, id) {
+    async fetchEvent({ commit, getters, dispatch, state }, id) {
+      if (id == state.event.id) {
+        return state.event
+      }
       const event = getters.getEventById(id)
       if (event) {
         commit('SET_EVENT', event)
@@ -52,7 +57,7 @@ export default {
           return response.data
         } catch (e) {
           const notification = {
-            type: 'error',
+            type: `error`,
             message: `There was a problem fetching the event: ${e.message}`
           }
           dispatch('notification/add', notification, { root: true })
@@ -71,6 +76,7 @@ export default {
           message: `There was a problem fetching events: ${e.message}`
         }
         dispatch('notification/add', notification, { root: true })
+        throw Error(e)
       }
     }
   },
