@@ -267,6 +267,24 @@
       "date": "2019-06-27T17:50:00.000Z",
       "time": "13:00",
       "attendees": []
+    },
+    {
+      "id": 5292155,
+      "user": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "category": "sustainability",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "title": "Save the trees",
+      "description": "Don't cut down trees for toilet paper",
+      "location": "Boston, MA",
+      "date": "2019-10-04T16:27:00.000Z",
+      "time": "19:00",
+      "attendees": []
     }
   ]
 }
