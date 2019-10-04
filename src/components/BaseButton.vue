@@ -1,7 +1,12 @@
 <template>
   <div>
-    <button v-on="$listeners" v-bind="$attrs" class="button" :class="buttonClass">
-      <slot/>
+    <button
+      v-on="$listeners"
+      v-bind="$attrs"
+      class="button"
+      :class="buttonClass"
+    >
+      <slot />
     </button>
   </div>
 </template>

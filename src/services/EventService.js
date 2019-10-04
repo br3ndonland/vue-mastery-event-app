@@ -1,7 +1,8 @@
 import axios from 'axios'
+import NProgress from 'nprogress'
 
 const apiClient = axios.create({
-  baseURL: `http://localhost:3000`,
+  baseURL: `http://localhost:8081`,
   withCredentials: false, // This is the default
   headers: {
     Accept: 'application/json',
@@ -10,14 +11,24 @@ const apiClient = axios.create({
   timeout: 10000
 })
 
+apiClient.interceptors.request.use(config => {
+  NProgress.start()
+  return config
+})
+
+apiClient.interceptors.response.use(response => {
+  NProgress.done()
+  return response
+})
+
 export default {
   getEvents(perPage, page) {
-    return apiClient.get('/events?_limit=' + perPage + '&_page=' + page)
+    return apiClient.get(`/events?_limit=${perPage}&_page=${page}`)
   },
   getEvent(id) {
-    return apiClient.get('/events/' + id)
+    return apiClient.get(`/events/${id}`)
   },
   postEvent(event) {
-    return apiClient.post('/events', event)
+    return apiClient.post(`/events`, event)
   }
 }

@@ -10,7 +10,9 @@
         @blur="$v.event.category.$touch()"
       />
       <template v-if="$v.event.category.$error">
-        <p v-if="!$v.event.category.required" class="errorMessage">Category is required.</p>
+        <p v-if="!$v.event.category.required" class="errorMessage">
+          Category is required.
+        </p>
       </template>
 
       <h3>Name & describe your event</h3>
@@ -25,7 +27,9 @@
       />
 
       <template v-if="$v.event.title.$error">
-        <p v-if="!$v.event.title.required" class="errorMessage">Title is required.</p>
+        <p v-if="!$v.event.title.required" class="errorMessage">
+          Title is required.
+        </p>
       </template>
 
       <BaseInput
@@ -39,7 +43,9 @@
       />
 
       <template v-if="$v.event.description.$error">
-        <p v-if="!$v.event.description.required" class="errorMessage">Description is required.</p>
+        <p v-if="!$v.event.description.required" class="errorMessage">
+          Description is required.
+        </p>
       </template>
 
       <h3>Where is your event?</h3>
@@ -54,7 +60,9 @@
       />
 
       <template v-if="$v.event.location.$error">
-        <p v-if="!$v.event.location.required" class="errorMessage">Location is required.</p>
+        <p v-if="!$v.event.location.required" class="errorMessage">
+          Location is required.
+        </p>
       </template>
 
       <h3>When is your event?</h3>
@@ -70,7 +78,9 @@
       </div>
 
       <template v-if="$v.event.date.$error">
-        <p v-if="!$v.event.date.required" class="errorMessage">Date is required.</p>
+        <p v-if="!$v.event.date.required" class="errorMessage">
+          Date is required.
+        </p>
       </template>
 
       <BaseSelect
@@ -83,15 +93,23 @@
       />
 
       <template v-if="$v.event.time.$error">
-        <p v-if="!$v.event.time.required" class="errorMessage">Time is required.</p>
+        <p v-if="!$v.event.time.required" class="errorMessage">
+          Time is required.
+        </p>
       </template>
 
-      <BaseButton type="submit" buttonClass="-fill-gradient" :disabled="$v.$anyError">Submit</BaseButton>
-      <p v-if="$v.$anyError" class="errorMessage">Please fill out the required field(s).</p>
+      <BaseButton
+        type="submit"
+        buttonClass="-fill-gradient"
+        :disabled="$v.$anyError"
+        >Submit</BaseButton
+      >
+      <p v-if="$v.$anyError" class="errorMessage">
+        Please fill out the required field(s).
+      </p>
     </form>
   </div>
 </template>
-
 
 <script>
 import Datepicker from 'vuejs-datepicker'
@@ -105,7 +123,7 @@ export default {
   data() {
     const times = []
     for (let i = 1; i <= 24; i++) {
-      times.push(i + ':00')
+      times.push(`${i}:00`)
     }
     return {
       times,
@@ -124,28 +142,25 @@ export default {
     }
   },
   methods: {
-    createEvent() {
-      this.$v.$touch()
-      if (!this.$v.$invalid) {
-        NProgress.start()
-        this.$store
-          .dispatch('event/createEvent', this.event)
-          .then(() => {
-            this.$router.push({
-              name: 'event-show',
-              params: { id: this.event.id }
-            })
-            this.event = this.createFreshEventObject()
+    async createEvent() {
+      try {
+        if (!this.$v.$invalid) {
+          NProgress.start()
+          await this.$store.dispatch('event/createEvent', this.event)
+          await this.$router.push({
+            name: 'event-show',
+            params: { id: this.event.id }
           })
-          .catch(() => {
-            NProgress.done()
-          })
+          this.event = this.createFreshEventObject()
+        }
+      } catch (e) {
+        NProgress.done()
+        throw Error(e)
       }
     },
     createFreshEventObject() {
       const user = this.$store.state.user.user
       const id = Math.floor(Math.random() * 10000000)
-
       return {
         id: id,
         user: user,

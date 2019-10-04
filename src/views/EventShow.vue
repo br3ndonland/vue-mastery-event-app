@@ -18,22 +18,37 @@
 
     <h2>
       Attendees
-      <span class="badge -fill-gradient">{{ event.attendees ? event.attendees.length : 0 }}</span>
+      <span class="badge -fill-gradient">{{
+        event.attendees ? event.attendees.length : 0
+      }}</span>
     </h2>
     <ul class="list-group">
-      <li v-for="(attendee, index) in event.attendees" :key="index" class="list-item">
+      <li
+        v-for="(attendee, index) in event.attendees"
+        :key="index"
+        class="list-item"
+      >
         <b>{{ attendee.name }}</b>
       </li>
     </ul>
   </div>
 </template>
 <script>
+import NProgress from 'nprogress'
+import store from '@/store/store'
+
 export default {
   props: {
     event: {
       type: Object,
       required: true
     }
+  },
+  async beforeRouteEnter(routeTo, routeFrom, next) {
+    NProgress.start()
+    await store.dispatch('event/fetchEvent', routeTo.params.id)
+    NProgress.done()
+    next()
   }
 }
 </script>
