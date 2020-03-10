@@ -1,5 +1,7 @@
 # Vue Mastery Example Event App
 
+![Install, build, format, and test](https://github.com/br3ndonland/vue-mastery-event-app/workflows/Install,%20build,%20format,%20and%20test/badge.svg)
+
 This is a demo app built during [Vue Mastery](https://www.vuemastery.com/) courses, [initially installed](https://github.com/br3ndonland/vue-mastery-notes/blob/master/vue-mastery-02-real-world.md#installing-the-event-app) during the [Real World Vue.js](https://www.vuemastery.com/courses/real-world-vue-js/real-world-intro) course. It is based on [Code-Pop/real-world-vue](https://github.com/Code-Pop/real-world-vue). See my companion repo [vue-mastery-notes](https://github.com/br3ndonland/vue-mastery-notes) for notes on Vue Mastery courses.
 
 ## Quickstart
