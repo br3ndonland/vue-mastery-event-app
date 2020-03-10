@@ -1,33 +1,23 @@
 # Vue Mastery Example Event App
 
-## Following along?
+This is a demo app built during [Vue Mastery](https://www.vuemastery.com/) courses, [initially installed](https://github.com/br3ndonland/vue-mastery-notes/blob/master/vue-mastery-02-real-world.md#installing-the-event-app) during the [Real World Vue.js](https://www.vuemastery.com/courses/real-world-vue-js/real-world-intro) course. It is based on [Code-Pop/real-world-vue](https://github.com/Code-Pop/real-world-vue). See my companion repo [vue-mastery-notes](https://github.com/br3ndonland/vue-mastery-notes) for notes on Vue Mastery courses.
 
-We encourage you to follow the course on Vue Mastery, and code along with us. This course has tags representing the start and finish of each lesson, just in case you get stuck.
+## Quickstart
 
-Here are the commands you’ll want handy once you have it installed. I’m assuming you already have npm installed.
+```sh
+# clone repo
+git clone path/to/repo
 
-To install dependencies:
+# install dependencies
+npm i -g json-server
+cd path/to/repo
+npm i
 
-```
-    $ npm install
-```
+# start JSON server
+json-server --watch db.json --port 8081
 
-To run the server:
-
-```
-    $ npm run serve
-```
-
-To get json-server, which we use for our mock database (Starting on API calls with Axios)
-
-```
-    $ npm install -g json-server
-```
-
-To run the mock database
-
-```
-    $ json-server --watch db.json
+# run app
+npm run serve
 ```
 
 ## Real World Vue Course
