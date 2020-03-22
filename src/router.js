@@ -17,12 +17,12 @@ const router = new Router({
       path: '/',
       name: 'event-list',
       component: EventList,
-      props: true
+      props: true,
     },
     {
       path: '/event/create',
       name: 'event-create',
-      component: EventCreate
+      component: EventCreate,
     },
     {
       path: '/event/:id',
@@ -45,24 +45,24 @@ const router = new Router({
           }
           throw Error(e)
         }
-      }
+      },
     },
     {
       path: '/404',
       name: '404',
       component: NotFound,
-      props: true
+      props: true,
     },
     {
       path: '/network-issue',
       name: 'network-issue',
-      component: NetworkIssue
+      component: NetworkIssue,
     },
     {
       path: '*',
-      redirect: { name: '404', params: { resource: 'page' } }
-    }
-  ]
+      redirect: { name: '404', params: { resource: 'page' } },
+    },
+  ],
 })
 
 router.beforeEach((routeTo, routeFrom, next) => {

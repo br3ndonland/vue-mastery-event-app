@@ -24,8 +24,8 @@ export default {
   props: {
     options: {
       type: Array,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 }
 </script>

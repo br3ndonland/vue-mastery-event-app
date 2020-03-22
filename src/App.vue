@@ -13,8 +13,8 @@ import NotificationContainer from '@/components/NotificationContainer.vue'
 export default {
   components: {
     NavBar,
-    NotificationContainer
-  }
+    NotificationContainer,
+  },
 }
 </script>
 

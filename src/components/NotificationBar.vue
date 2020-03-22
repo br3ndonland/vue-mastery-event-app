@@ -11,12 +11,12 @@ export default {
   props: {
     notification: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
     return {
-      timeout: null
+      timeout: null,
     }
   },
   mounted() {
@@ -28,9 +28,9 @@ export default {
   computed: {
     notificationTypeClass() {
       return `-text-${this.notification.type}`
-    }
+    },
   },
-  methods: mapActions('notification', ['remove'])
+  methods: mapActions('notification', ['remove']),
 }
 </script>
 

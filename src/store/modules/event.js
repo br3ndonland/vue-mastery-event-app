@@ -6,7 +6,7 @@ export default {
     events: [],
     eventsTotal: 0,
     event: {},
-    perPage: 3
+    perPage: 3,
   },
   mutations: {
     ADD_EVENT(state, event) {
@@ -20,7 +20,7 @@ export default {
     },
     SET_EVENT(state, event) {
       state.event = event
-    }
+    },
   },
   actions: {
     async createEvent({ commit, dispatch }, event) {
@@ -30,13 +30,13 @@ export default {
         commit('SET_EVENT', event)
         const notification = {
           type: 'success',
-          message: 'Your event has been created!'
+          message: 'Your event has been created!',
         }
         dispatch('notification/add', notification, { root: true })
       } catch (e) {
         const notification = {
           type: 'error',
-          message: `There was a problem creating your event: ${e.message}`
+          message: `There was a problem creating your event: ${e.message}`,
         }
         dispatch('notification/add', notification, { root: true })
         throw Error(e)
@@ -58,7 +58,7 @@ export default {
         } catch (e) {
           const notification = {
             type: `error`,
-            message: `There was a problem fetching the event: ${e.message}`
+            message: `There was a problem fetching the event: ${e.message}`,
           }
           dispatch('notification/add', notification, { root: true })
           throw Error(e)
@@ -73,16 +73,16 @@ export default {
       } catch (e) {
         const notification = {
           type: 'error',
-          message: `There was a problem fetching events: ${e.message}`
+          message: `There was a problem fetching events: ${e.message}`,
         }
         dispatch('notification/add', notification, { root: true })
         throw Error(e)
       }
-    }
+    },
   },
   getters: {
-    getEventById: state => id => {
-      return state.events.find(event => event.id === id)
-    }
-  }
+    getEventById: (state) => (id) => {
+      return state.events.find((event) => event.id === id)
+    },
+  },
 }

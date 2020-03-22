@@ -10,7 +10,7 @@ export default new Vuex.Store({
   modules: {
     user,
     event,
-    notification
+    notification,
   },
   state: {
     categories: [
@@ -20,7 +20,7 @@ export default new Vuex.Store({
       'housing',
       'education',
       'food',
-      'community'
-    ]
-  }
+      'community',
+    ],
+  },
 })

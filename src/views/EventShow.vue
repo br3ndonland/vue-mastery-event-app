@@ -41,15 +41,15 @@ export default {
   props: {
     event: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   async beforeRouteEnter(routeTo, routeFrom, next) {
     NProgress.start()
     await store.dispatch('event/fetchEvent', routeTo.params.id)
     NProgress.done()
     next()
-  }
+  },
 }
 </script>
 <style scoped>

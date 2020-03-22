@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "lint-all": "prettier --check '**/*.*css' '**/*.html' '**/*.js*' '**/*.md' '**/*.vue' '**/*.y*ml'"
+    "lint-all": "prettier --check ."
   },
   "dependencies": {
     "axios": "^0.19.0",
@@ -27,7 +27,7 @@
     "@vue/eslint-config-prettier": "^3.0.5",
     "acorn": "7.1.1",
     "minimist": "1.2.5",
-    "prettier": "1.19.1",
+    "prettier": "2.0.1",
     "serialize-javascript": "3.0.0",
     "vue-template-compiler": "^2.6.10"
   },

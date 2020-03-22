@@ -18,9 +18,9 @@ export default {
     listeners() {
       return {
         ...this.$listeners,
-        input: this.updateValue
+        input: this.updateValue,
       }
-    }
-  }
+    },
+  },
 }
 </script>

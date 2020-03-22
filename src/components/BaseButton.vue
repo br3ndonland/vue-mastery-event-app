@@ -16,9 +16,9 @@ export default {
   inheritAttrs: false,
   props: {
     buttonClass: {
-      type: String
-    }
-  }
+      type: String,
+    },
+  },
 }
 </script>
 

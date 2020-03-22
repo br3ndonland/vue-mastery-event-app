@@ -118,7 +118,7 @@ import { required } from 'vuelidate/lib/validators'
 
 export default {
   components: {
-    Datepicker
+    Datepicker,
   },
   data() {
     const times = []
@@ -128,7 +128,7 @@ export default {
     return {
       times,
       categories: this.$store.state.categories,
-      event: this.createFreshEventObject()
+      event: this.createFreshEventObject(),
     }
   },
   validations: {
@@ -138,8 +138,8 @@ export default {
       description: { required },
       location: { required },
       date: { required },
-      time: { required }
-    }
+      time: { required },
+    },
   },
   methods: {
     async createEvent() {
@@ -149,7 +149,7 @@ export default {
           await this.$store.dispatch('event/createEvent', this.event)
           await this.$router.push({
             name: 'event-show',
-            params: { id: this.event.id }
+            params: { id: this.event.id },
           })
           this.event = this.createFreshEventObject()
         }
@@ -171,9 +171,9 @@ export default {
         location: '',
         date: '',
         time: '',
-        attendees: []
+        attendees: [],
       }
-    }
-  }
+    },
+  },
 }
 </script>
