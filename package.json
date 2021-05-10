@@ -11,7 +11,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "husky": "^4.2.3",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "nprogress": "^0.2.0",
     "pretty-quick": "^2.0.1",
     "vue": "^2.6.10",
